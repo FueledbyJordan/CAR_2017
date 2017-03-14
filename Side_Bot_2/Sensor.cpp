@@ -19,6 +19,10 @@ int Sensor::getFrontDistance() {
     return (frontLeft.getDistanceCentimeter() + frontRight.getDistanceCentimeter()) / 2;
 }
 
+int Sensor::getFrontDifference(){
+    return ((frontLeft.getDistanceCentimeter() - frontRight.getDistanceCentimeter()));
+}
+
 int Sensor::getSideDistance() {
     return side.getDistanceCentimeter();
 }

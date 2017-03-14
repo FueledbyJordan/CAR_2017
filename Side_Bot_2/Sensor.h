@@ -17,6 +17,7 @@ class Sensor{
 
         int getFrontDistance();
         int getSideDistance();
+        int getFrontDifference();
 
     private:
         DistanceGP2Y0A21YK frontLeft;
