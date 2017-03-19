@@ -8,16 +8,28 @@
 #define FLIR A1 //Front Left IR Sensor
 #define FRIR A0 //Front Right IR Sensor
 
-#define FRT 23  //Front Right Touch Sensor
-#define FLT 25  //Front Left Touch Sensor
+#define FRT 31  //Front Right Touch Sensor
+#define FLT 29  //Front Left Touch Sensor
 
 class Sensor{
     public:
         void init();
 
+        int getFrontLeftDistance();
+        int getFrontRightDistance();
+        
         int getFrontDistance();
         int getSideDistance();
         int getFrontDifference();
+
+        void setLeftTouch();
+        void setRightTouch();
+        void setFrontSensorPair();
+        void setSideSensor();
+        void setTouchSensorPair();
+
+        boolean areBothPressed();
+
 
     private:
         DistanceGP2Y0A21YK frontLeft;
@@ -26,10 +38,7 @@ class Sensor{
 
         bool lButtonPressed = false;
         bool rButtonPressed = false;
-
-        void setFrontSensorPair();
-        void setSideSensor();
-        void setTouchSensorPair();
 };
-
 #endif //Sensor.h
+
+

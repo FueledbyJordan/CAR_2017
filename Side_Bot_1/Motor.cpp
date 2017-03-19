@@ -21,19 +21,32 @@ void drive(int velocity) {
 
 void pidForward(Sensor sensor, int velocity){
         int diffVal = 0;
+         
+        accel(velocity, 0.1);
+        
+          while(sensor.getFrontDistance() > 10) {
+                  diffVal = sensor.getFrontDifference();
+  
+                  if (diffVal > 0) {
+                          motor1((velocity - (diffVal * PID_CONST)));
+                          motor3((velocity - (diffVal * PID_CONST)));
+                          //turn left delta
+                  }else if(diffVal < 0) {
+                          motor2((velocity - (diffVal * PID_CONST)));
+                          motor4((velocity - (diffVal * PID_CONST)));
+                          //turn right delta
+                  }
+          }
+  
+}
 
-        while(sensor.getFrontDistance() > 10) {
-                diffVal = sensor.getFrontDifference();
-
-                if (diffVal > 0) {
-                        motor1((velocity - (diffVal * PID_CONST)));
-                        motor3((velocity - (diffVal * PID_CONST)));
-                }else if(diffVal < 0) {
-                        motor2((velocity - (diffVal * PID_CONST)));
-                        motor4((velocity - (diffVal * PID_CONST)));
-                }
-                //delay(50);
-        }
+int accel(int velocity, float accelRate) {
+  int current_velocity = 0;
+  while(current_velocity <= velocity){
+    current_velocity += velocity * accelRate;
+    drive(current_velocity);
+    delay(20);
+  }
 }
 
 /*void rotate(int theta) {
@@ -103,3 +116,4 @@ void motor4(int speed) {
                 analogWrite(mBRb, speed);
         }
 }
+
