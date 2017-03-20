@@ -1,7 +1,7 @@
 #include "Sensor.h"
 #include "Motor.h"
 
-// * SIDEBOT 2
+// * SIDEBOT 1
 
 Sensor sensor;
 
@@ -17,7 +17,7 @@ void setup(){
 void loop(){
 
   // ACTUAL CODE
-  /*pidForward(sensor, 40);
+  pidForward(sensor, 40);
 
   drive(0);
 
@@ -33,9 +33,7 @@ void loop(){
   drive(0);
 
   while(1){
-    
-  }*/
-  Serial.println(sensor.getFrontRightDistance());
-  delay(100);
-}
 
+  }
+
+}
