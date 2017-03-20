@@ -20,7 +20,12 @@ int Sensor::getFrontDistance() {
 }
 
 int Sensor::getFrontDifference(){
-    return ((frontLeft.getDistanceCentimeter() - frontRight.getDistanceCentimeter()));
+      int total;
+      for (int i = 0; i < 5; i++){
+        total+=(getFrontLeftDistance()-getFrontRightDistance());
+        delay(50);
+      }
+    return total/5;
 }
 
 int Sensor::getSideDistance() {
@@ -31,3 +36,35 @@ void Sensor::setTouchSensorPair() {
     pinMode(FLT, INPUT);
     pinMode(FRT, INPUT);
 }
+
+int Sensor::getFrontLeftDistance() {
+  return frontLeft.getDistanceCentimeter();
+}
+
+int Sensor::getFrontRightDistance() {
+  return frontRight.getDistanceCentimeter();
+}
+
+boolean Sensor::areBothPressed() {
+  return (rButtonPressed & lButtonPressed);
+}
+
+void Sensor::setLeftTouch() {
+  if (digitalRead(FLT)) {
+    lButtonPressed = true;
+  }
+}
+
+void Sensor::setRightTouch() {
+  if (digitalRead(FRT)) {
+    rButtonPressed = true;
+  }
+}
+
+
+
+
+
+
+
+

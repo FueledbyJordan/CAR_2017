@@ -15,6 +15,14 @@ void Sensor::setSideSensor() {
     side.begin(SIR);
 }
 
+int Sensor::getFrontRightDistance(){
+  return frontRight.getDistanceCentimeter();
+}
+
+int Sensor::getFrontLeftDistance(){
+  return frontLeft.getDistanceCentimeter();
+}
+
 int Sensor::getFrontDistance() {
     return (frontLeft.getDistanceCentimeter() + frontRight.getDistanceCentimeter()) / 2;
 }

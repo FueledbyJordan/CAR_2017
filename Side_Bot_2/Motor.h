@@ -4,21 +4,21 @@
 #include "Arduino.h"
 #include "Sensor.h"
 
-#define PID_CONST 1
+#define PID_CONST 2
 
-    static const int mFLa=9;    //MOTOR 1
-    static const int mFLb=7;
+    const int mFLa=9;    //MOTOR 1
+    const int mFLb=4;
 
-    static const int mFRa=10;   //MOTOR 2
-    static const int mFRb=6;
+    const int mFRa=10;   //MOTOR 2
+    const int mFRb=5;
 
-    static const int mBLa=12;   //MOTOR 3
-    static const int mBLb=4;
+    const int mBLa=12;   //MOTOR 3
+    const int mBLb=7;
 
-    static const int mBRa=11;   //MOTOR 4
-    static const int mBRb=5;
+    const int mBRa=11;   //MOTOR 4
+    const int mBRb=6;
 
-
+    static int adjustedV = 1;
 
     void initMotors();
 
@@ -30,6 +30,8 @@
     void drive(int velocity);
     void pidForward(Sensor sensor, int velocity);
 //    void rotate(int theta);
+    int accel(int velocity, float accelRate);
 
 
 #endif //Motor.h
+

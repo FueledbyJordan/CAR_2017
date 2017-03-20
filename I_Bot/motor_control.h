@@ -3,14 +3,14 @@
 
 #include "Arduino.h"
 
-static const int M1DIR=28;
+static const int M1DIR=28;  //mFL
 static const int M1SPD=12;
-static const int M2DIR=26;
+static const int M2DIR=26;  //mFR
 static const int M2SPD=11;
-static const int M3DIR=24;
-static const int M3SPD=10;
-static const int M4DIR=22;
-static const int M4SPD=9;
+static const int M3DIR=22;  //mBL
+static const int M3SPD=9;
+static const int M4DIR=24;  //mBR
+static const int M4SPD=10;
 
 
 
@@ -21,8 +21,11 @@ static const float Y_AXIS_MOVE_VEL = 0.45;     // in m/s
 static const int ARM_Y_REACH = 120;            // in mm
 static const int ALIGN_SPEED = 140;
 
+void motor1(int speed);
+void motor2(int speed);
+void motor3(int speed);
+void motor4(int speed);
+
 void move(short speed, unsigned short theta, short rotation);
-void sideStep(short speed, unsigned short direction, int milliseconds);
-void align(int x, int y, int z);
 
 #endif // MOTOR_CONTROL_H
