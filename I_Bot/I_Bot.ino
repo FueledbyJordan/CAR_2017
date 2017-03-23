@@ -1,5 +1,6 @@
 #include "Sensor.h"
 #include "motor_control.h"
+#include "Communication.h"
 
 Sensor sensor;
 
