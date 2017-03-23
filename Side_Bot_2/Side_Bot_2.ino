@@ -1,5 +1,6 @@
 #include "Sensor.h"
 #include "Motor.h"
+#include "Communication.h"
 
 // * SIDEBOT 2
 
