@@ -63,7 +63,7 @@ void masterRequest(int destination){
 
   message += "&";
 
-  switch(destination){
+  switch(destination){  //begin John's spaghetti code
     case SB1_ADDRESS:
       if(message.charAt(0) == 'S' && message.charAt(1) == 'T'){
         while(message.charAt(i) != '&'){
@@ -105,4 +105,3 @@ void sendCode(){
   Wire.write(networkCode.c_str());
   Wire.endTransmission();
 }
-
