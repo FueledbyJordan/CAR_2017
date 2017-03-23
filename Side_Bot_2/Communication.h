@@ -26,7 +26,7 @@ bool getDone();
 
 void setCode(String code);
 
-void initSB1();
+void initSB2();
 
 void receiveEvent(int howMany);
 

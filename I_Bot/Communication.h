@@ -42,6 +42,8 @@ void setCode(String code);
 
 void initMaster();
 
+void startSideBots();
+
 void masterRequest(int destination);
 
 void sendCode();

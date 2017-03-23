@@ -30,7 +30,7 @@ bool getDone(){
   return bDone;
 }
 
-void initSB1(){
+void initSB2(){
   bStart = false;
   bDest = false;
   bDone = false;
