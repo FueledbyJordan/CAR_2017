@@ -93,3 +93,29 @@ void motor4(int speed) {
     }
     analogWrite(M4SPD, speed);
 }
+
+void motorInit(){
+    pinMode(M1DIR, OUTPUT);
+    pinMode(M1SPD, OUTPUT);
+    pinMode(M2DIR, OUTPUT);
+    pinMode(M2SPD, OUTPUT);
+    pinMode(M3DIR, OUTPUT);
+    pinMode(M3SPD, OUTPUT);
+    pinMode(M4DIR, OUTPUT);
+    pinMode(M4SPD, OUTPUT);
+
+    pinMode(GUNMOTOR, OUTPUT);
+    pinMode(GUNSOLENOID, OUTPUT);
+}
+
+void fire(){
+    analogWrite(GUNMOTOR, 255);
+    delay(10000);
+  for(int i=0; i < 3; i++){
+    analogWrite(GUNSOLENOID, 255);
+    delay(200);
+    analogWrite(GUNSOLENOID, 0);
+    delay(1000);
+  }
+  analogWrite(GUNMOTOR, 0);
+}

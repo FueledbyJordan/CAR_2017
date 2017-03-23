@@ -12,14 +12,13 @@ static const int M3SPD=9;
 static const int M4DIR=24;  //mBR
 static const int M4SPD=10;
 
+static const int GUNMOTOR = 5;
+static const int GUNSOLENOID = 4;
 
 
+void motorInit();
 
-
-static const float X_AXIS_MOVE_VEL = 0.45;     // in m/s
-static const float Y_AXIS_MOVE_VEL = 0.45;     // in m/s
-static const int ARM_Y_REACH = 120;            // in mm
-static const int ALIGN_SPEED = 140;
+void fire();
 
 void motor1(int speed);
 void motor2(int speed);
