@@ -12,13 +12,13 @@ void setup(){
 
 void loop(){
   //delay(10000);
-  move(100,0,0);
-  move(100,0,0);
-  
-  while(sensor.getFrontLeftDistance() > 10){
+  //move(100,0,0);
+  //move(100,0,0);
+  motor4(-100);
+  while(sensor.getFrontLeftDistance() > 5){
   }
   move(0,0,0);
-  fire();
+  //fire();
   while(1){
 
   }

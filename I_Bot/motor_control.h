@@ -4,13 +4,16 @@
 #include "Arduino.h"
 
 static const int M1DIR=28;  //mFL
-static const int M1SPD=12;
-static const int M2DIR=26;  //mFR
-static const int M2SPD=11;
-static const int M3DIR=22;  //mBL
-static const int M3SPD=9;
+static const int M1SPD=10;
+
+static const int M2DIR=30;  //mFR
+static const int M2SPD=9;
+
+static const int M3DIR=26;  //mBL
+static const int M3SPD=11;
+
 static const int M4DIR=24;  //mBR
-static const int M4SPD=10;
+static const int M4SPD=12;
 
 static const int GUNMOTOR = 5;
 static const int GUNSOLENOID = 4;
