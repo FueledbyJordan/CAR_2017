@@ -54,13 +54,13 @@ void initMaster(){
 
 void startSideBots(){
     Wire.beginTransmission(SB1_ADDRESS);
-    Wire.Write("START");
+    Wire.write("START");
     Wire.endTransmission();
 
     delay(2000);
 
     Wire.beginTransmission(SB2_ADDRESS);
-    Wire.Write("START");
+    Wire.write("START");
     Wire.endTransmission();
 }
 
