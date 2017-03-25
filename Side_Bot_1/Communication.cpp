@@ -1,5 +1,7 @@
 #include "Communication.h"
 
+LiquidCrystal lcd(LCD_D, LCD_G, LCD_K, LCD_L, LCD_M, LCD_N);
+
 //SETTERS
 void setStart(bool start){
   bStart = start;
@@ -36,10 +38,31 @@ void initSB1(){
   bDone = false;
   networkCode = "";
 
+  initLCD();
+
   Wire.begin(SB1_ADDRESS);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // register event
   Wire.onRequest(requestEvent);
   //Serial.begin(9600);           // start serial for output
+}
+
+void initLCD(){
+    lcd.begin(16,2);
+    lcd.setCursor(0,0);
+}
+
+void printCode(String code){
+  int length = code.length() * 2;
+  String lcdOutput = "";
+  for(int i = 0; i < length; i++){
+    if(i & 1){
+      lcdOutput += ' ';
+    }
+    else{
+      lcdOutput += code[i/2];
+    }
+  }
+  lcd.print(lcdOutput);
 }
 
 void receiveEvent(int howMany) {
