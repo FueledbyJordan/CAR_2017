@@ -1,5 +1,7 @@
 #include "Motor.h"
 
+AccelStepper step_motor(1, STEP, STEP_DIR);
+
 void initMotors(){
         pinMode(mFLa, OUTPUT);
         pinMode(mFLb, OUTPUT);
@@ -9,6 +11,9 @@ void initMotors(){
         pinMode(mBLb, OUTPUT);
         pinMode(mBRa, OUTPUT);
         pinMode(mBRb, OUTPUT);
+
+        step_motor.setMaxSpeed(20000);
+        step_motor.setAcceleration(5000);
 }
 
 void drive(int velocity) {
@@ -21,12 +26,12 @@ void drive(int velocity) {
 
 void pidForward(Sensor sensor, int velocity){
         int diffVal = 0;
-         
+
         accel(velocity, 0.1);
-        
+
           while(sensor.getFrontDistance() > 10) {
                   diffVal = sensor.getFrontDifference();
-  
+
                   if (diffVal > 0) {
                           motor1((velocity - (diffVal * PID_CONST)));
                           motor3((velocity - (diffVal * PID_CONST)));
@@ -37,7 +42,7 @@ void pidForward(Sensor sensor, int velocity){
                           //turn right delta
                   }
           }
-  
+
 }
 
 int accel(int velocity, float accelRate) {
@@ -47,6 +52,16 @@ int accel(int velocity, float accelRate) {
     drive(current_velocity);
     delay(20);
   }
+}
+
+void armForward(){
+    step_motor.moveTo(26000);
+    step_motor.run();
+}
+
+void armReverse(){
+    step_motor.moveTo(-26000);
+    step_motor.run();
 }
 
 /*void rotate(int theta) {
@@ -116,4 +131,3 @@ void motor4(int speed) {
                 analogWrite(mBRb, speed);
         }
 }
-

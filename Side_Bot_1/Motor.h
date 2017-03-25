@@ -18,6 +18,9 @@
     const int mBRa=11;   //MOTOR 4
     const int mBRb=6;
 
+    const int STEP = 41;
+    const int STEP_DIR = 43;
+
     static int adjustedV = 1;
 
     void initMotors();
@@ -32,6 +35,8 @@
 //    void rotate(int theta);
     int accel(int velocity, float accelRate);
 
+    void armForward();
+    void armReverse();
+
 
 #endif //Motor.h
-
