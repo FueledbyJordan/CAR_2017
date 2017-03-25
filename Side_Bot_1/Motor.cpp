@@ -55,12 +55,12 @@ int accel(int velocity, float accelRate) {
 }
 
 void armForward(){
-    step_motor.moveTo(26000);
+    step_motor.moveTo(32000);
     step_motor.run();
 }
 
 void armReverse(){
-    step_motor.moveTo(-26000);
+    step_motor.moveTo(-32000);
     step_motor.run();
 }
 
