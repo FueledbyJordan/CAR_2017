@@ -129,11 +129,13 @@ void getPulse(){
   const float TOLERANCE = 0.01;
 
   compass.read();
-
-  float baseLine = abs(compass.m.x) + abs(compass.m.y) + abs(compass.m.z);
+  //should hard code the baseline value, do this at competition.
+  //may adjust the TOLERANCE value
+  //put a delay after pulse
+  float baseLine = sqrt(compass.m.x * compass.m.x + compass.m.y * compass.m.y + compass.m.z * compass.m.z);
   float current = baseLine;
   while(baseLine <= current*(1+TOLERANCE) && baseLine >= current*(1-TOLERANCE)){
     compass.read();
-    current = abs(compass.m.x) + abs(compass.m.y) + abs(compass.m.z);
+    current = sqrt(compass.m.x * compass.m.x + compass.m.y * compass.m.y + compass.m.z * compass.m.z);
   }
 }
