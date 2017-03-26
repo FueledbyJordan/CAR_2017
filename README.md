@@ -4,3 +4,10 @@ This is a temporary repository to hold the collection of source code used for th
 
 ### NOTE:
 This README will be appended to as the project grows.
+
+#### TODO:
+Servo functions
+Read Stage 1
+Rotate Stage 3
+Implement communication protocol
+Implement ino code
