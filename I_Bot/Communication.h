@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+#include <LSM303.h>
 
 #define SB1_ADDRESS 8
 #define SB2_ADDRESS 9
@@ -47,5 +48,9 @@ void startSideBots();
 void masterRequest(int destination);
 
 void sendCode();
+
+void initMag();
+
+void getPulse();
 
 #endif //COMMUNICATION_H

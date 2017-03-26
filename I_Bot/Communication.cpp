@@ -1,5 +1,7 @@
 #include "Communication.h"
 
+LSM303 compass;
+
 //SETTERS
 void setMasterStart(bool start){
   masterStart = start;
@@ -49,7 +51,7 @@ void initMaster(){
   networkCode = "";
 
   Wire.begin();                // join i2c bus with address #8
-  //Serial.begin(9600);           // start serial for output
+  initMag();
 }
 
 void startSideBots(){
@@ -116,4 +118,22 @@ void sendCode(){
   Wire.beginTransmission(SB2_ADDRESS);
   Wire.write(networkCode.c_str());
   Wire.endTransmission();
+}
+
+void initMag(){
+  compass.init();
+  compass.enableDefault();
+}
+
+void getPulse(){
+  const float TOLERANCE = 0.01;
+
+  compass.read();
+
+  float baseLine = abs(compass.m.x) + abs(compass.m.y) + abs(compass.m.z);
+  float current = baseLine;
+  while(baseLine <= current*(1+TOLERANCE) && baseLine >= current*(1-TOLERANCE)){
+    compass.read();
+    current = abs(compass.m.x) + abs(compass.m.y) + abs(compass.m.z);
+  }
 }
