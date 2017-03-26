@@ -22,6 +22,7 @@
     const int STEP_DIR = 43;
 
     static int adjustedV = 1;
+    static const int STEPPER_VALUE = 32000;
 
     void initMotors();
 
