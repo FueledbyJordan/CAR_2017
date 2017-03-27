@@ -35,5 +35,3 @@ LCD_K | 38
 LCD_L | 40
 LCD_M | 36
 LCD_N | 34  
-
-#### Jordan is dumb
