@@ -1,5 +1,3 @@
-#include <LSM303.h>
-
 #include "Sensor.h"
 #include "motor_control.h"
 #include "Communication.h"
@@ -12,7 +10,6 @@ void setup(){
     motorInit();
     sensor.init();
     initMaster();
-    initMag();
 }
 
 void loop(){
