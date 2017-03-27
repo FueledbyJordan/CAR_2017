@@ -135,11 +135,8 @@ void getPulse(){
   int baseLine = 500;
   //int baseLine = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
   int current = baseLine;
-  /*while(baseLine <= current*(1+TOLERANCE) && baseLine >= current*(1-TOLERANCE)){
-    compass.read();
-    current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
-  }*/
-  while (current <= baseLine * (1+TOLERANCE)){
+
+  while (abs(current) <= baseLine * (1+TOLERANCE)){
     compass.read();
     current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
 
