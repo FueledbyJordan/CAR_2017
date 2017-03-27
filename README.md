@@ -7,6 +7,7 @@ This project has the following dependencies:
 * DistanceGP2Y0A21YK
 * AccelStepper
 * LSM303
+* Servo
 
 ### NOTE:
 This README will be appended to as the project grows.
