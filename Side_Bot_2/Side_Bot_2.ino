@@ -19,7 +19,6 @@ void loop(){
 
   // ACTUAL CODE
   pidForward(sensor, 40);
-  //accel(30, 0.2);
 
   drive(0);
 
