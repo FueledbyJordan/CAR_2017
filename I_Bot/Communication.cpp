@@ -51,6 +51,8 @@ void initMaster(){
   networkCode = "";
 
   Wire.begin();                // join i2c bus with address #8
+
+  initMag();
 }
 
 void startSideBots(){
