@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Sensor.h"
 
-#define PID_CONST 2
+#define PID_CONST 1
 
     const int mFLa=9;    //MOTOR 1
     const int mFLb=4;
