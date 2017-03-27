@@ -51,7 +51,6 @@ void initMaster(){
   networkCode = "";
 
   Wire.begin();                // join i2c bus with address #8
-  initMag();
 }
 
 void startSideBots(){
@@ -126,16 +125,21 @@ void initMag(){
 }
 
 void getPulse(){
-  const float TOLERANCE = 0.01;
 
   compass.read();
-  //should hard code the baseline value, do this at competition.
-  //may adjust the TOLERANCE value
-  //put a delay after pulse
-  float baseLine = sqrt(compass.m.x * compass.m.x + compass.m.y * compass.m.y + compass.m.z * compass.m.z);
-  float current = baseLine;
-  while(baseLine <= current*(1+TOLERANCE) && baseLine >= current*(1-TOLERANCE)){
+  const float TOLERANCE = 0.05;
+
+  //compass.read();
+  int baseLine = 500;
+  //int baseLine = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
+  int current = baseLine;
+  /*while(baseLine <= current*(1+TOLERANCE) && baseLine >= current*(1-TOLERANCE)){
     compass.read();
-    current = sqrt(compass.m.x * compass.m.x + compass.m.y * compass.m.y + compass.m.z * compass.m.z);
+    current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
+  }*/
+  while (current <= baseLine * (1+TOLERANCE)){
+    compass.read();
+    current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
+
   }
 }
