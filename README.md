@@ -2,6 +2,12 @@
 
 This is a temporary repository to hold the collection of source code used for the IEEE SECON robotic competition.
 
+## Dependencies:
+This project has the following dependencies:
+* DistanceGP2Y0A21YK
+* AccelStepper
+* LSM303
+
 ### NOTE:
 This README will be appended to as the project grows.
 
