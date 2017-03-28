@@ -14,6 +14,10 @@ void setup(){
 
 void loop(){
   delay(10000);
+
+  startSideBots();
+
+  delay(10000);
   //SEND START MESSAGE TO SIDEBOTS
   move(-100,0,0);
   while(sensor.getFrontLeftDistance() > 5){
@@ -23,7 +27,7 @@ void loop(){
   //REQUEST CODE FROM SB1
   //SEND CODE TO SB2
   //REQUEST SB2 FINISHED
-  fire();
+  //fire();
   while(1){
 
   }

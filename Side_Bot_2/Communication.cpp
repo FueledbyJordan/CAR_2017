@@ -5,7 +5,7 @@ void setStart(bool start){
   bStart = start;
 }
 
-void setTask(bool dest){
+void setDest(bool dest){
   bDest = dest;
 }
 
