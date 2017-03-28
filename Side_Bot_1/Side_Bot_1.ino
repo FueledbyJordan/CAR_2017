@@ -10,13 +10,16 @@ void setup(){
   Serial.begin(9600);
 
   sensor.init();
-  //sensor.setFrontSensorPair();
   initMotors();
+  initSB1();
 
 }
 
 void loop(){
+  //wait for start
+  while(!getStart()){
 
+  }
   // ACTUAL CODE
   pidForward(sensor, 40);
 
@@ -32,6 +35,17 @@ void loop(){
   }
 
   drive(0);
+
+  //extend the arm
+  armForward();
+
+  //read circuit
+    //print code without CO_
+    //set networkCode
+
+  setDone(true); //when requested will transmit
+
+  armReverse();
 
   while(1){
 
