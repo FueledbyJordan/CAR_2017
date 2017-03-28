@@ -2,6 +2,7 @@
 #define SENSOR_H
 
 #include <DistanceGP2Y0A21YK.h>
+#include "Communication.h"
 #include "Arduino.h"
 
 #define SIR A2  //Side IR Sensor
@@ -28,7 +29,7 @@ class Sensor{
         int getFrontDistance();
         int getSideDistance();
         int getFrontDifference();
-        String getCode();
+        void getCode();
 
         void setLeftTouch();
         void setRightTouch();

@@ -39,11 +39,10 @@ void loop(){
   //extend the arm
   armForward();
 
-  //read circuit
-    //print code without CO_
-    //set networkCode
+  //connection has been made, let's do some probing
+  getCode();
 
-  setDone(true); //when requested will transmit
+  setDone(true); //when requested will transmit code
 
   armReverse();
 

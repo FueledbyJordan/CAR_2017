@@ -64,28 +64,6 @@ void armReverse(){
     step_motor.run();
 }
 
-/*void rotate(int theta) {
-
-    int M1;
-    int M2;
-    int M3;
-    int M4;
-
-    theta %= 360;
-
-    M3 = theta * (R + L/2);
-    M4 = -M3;
-    M2 = 1/4 * M3;
-    M1 = 1/4 * M4;
-
-    motor1(M1);
-    motor2(M2);
-    motor3(M3);
-    motor4(M4);
-
-    //spin for a time, then stop
-   }*/
-
 void motor1(int speed) {
         if (speed >= 0) {
                 analogWrite(mFLb, 0);

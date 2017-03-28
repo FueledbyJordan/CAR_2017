@@ -67,7 +67,7 @@ void Sensor::setProbe(){
         digitalWrite(ENABLEPROBE,HIGH);
 }
 
-String Sensor::getCode(){
+void Sensor::getCode(){
         const float INDUCTOR = 4.98;
         const float CAPACITOR = 1.74;
         const float RESISTOR = 1.42;
@@ -104,5 +104,7 @@ String Sensor::getCode(){
                 }
         }
 
-        return code;
+        printCode(code);
+
+        setCode(code);
 }
