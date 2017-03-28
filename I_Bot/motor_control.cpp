@@ -1,11 +1,12 @@
 #include <math.h>
 #include "motor_control.h"
+#include <Servo.h>
 
 static const float RAD45    = 0.78539816;   //  pi/4
 
 /* Function Prototypes */
 
-
+Servo lightsaber;
 
 void move(short speed, unsigned short theta, short rotation) {
     // get argument for trig functions
@@ -106,6 +107,20 @@ void motorInit(){
 
     pinMode(GUNMOTOR, OUTPUT);
     pinMode(GUNSOLENOID, OUTPUT);
+    servoInit();
+}
+
+void servoInit(){
+    pinMode(7,OUTPUT);
+    lightsaber.write(0);
+    lightsaber.attach(7); //analog pin 0
+}
+
+void swing(){
+  lightsaber.write(100);
+  delay(500);
+  lightsaber.write(0);
+  delay(500);
 }
 
 void fire(){

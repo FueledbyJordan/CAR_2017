@@ -39,6 +39,8 @@ bool getsb1Done();
 bool getsb2Dest();
 bool getsb2Done();
 
+String getNetworkCode();
+
 void setCode(String code);
 
 void initMaster();
