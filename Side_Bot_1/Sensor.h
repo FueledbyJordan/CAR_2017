@@ -11,6 +11,13 @@
 #define FRT 31  //Front Right Touch Sensor
 #define FLT 29  //Front Left Touch Sensor
 
+#define PROBE1 A5  //NORTH
+#define PROBE2 A6  //NORTHEAST
+#define PROBE3 A3  //SOUTHEAST
+#define PROBE4 A7  //SOUTHWEST
+#define PROBE5 A4  //NORTHWEST
+#define ENABLEPROBE 50
+
 class Sensor{
     public:
         void init();
