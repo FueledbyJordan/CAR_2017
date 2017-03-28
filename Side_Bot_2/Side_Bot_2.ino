@@ -12,11 +12,14 @@ void setup(){
   sensor.init();
   //sensor.setFrontSensorPair();
   initMotors();
+  initSB2();
 
 }
 
 void loop(){
+  while(!getStart()){
 
+  }
   // ACTUAL CODE
   pidForward(sensor, 40);
 
@@ -33,9 +36,14 @@ void loop(){
 
   drive(0);
 
+  //setDest(true);
+
+  //turn sequence based on CO_ code from master
+
+  //setDone(true);
+
   while(1){
-    
+
   }
 
 }
-
