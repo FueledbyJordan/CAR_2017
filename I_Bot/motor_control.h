@@ -20,6 +20,9 @@ static const int GUNSOLENOID = 4;
 
 
 void motorInit();
+void servoInit();
+
+void swing();
 
 void fire();
 

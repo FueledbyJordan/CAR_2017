@@ -144,6 +144,6 @@ void getPulse(){
   while (abs(current) <= baseLine * (1+TOLERANCE)){
     compass.read();
     current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
-
+    Serial.println(current);
   }
 }
