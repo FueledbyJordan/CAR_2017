@@ -23,11 +23,28 @@ void loop(){
   while(sensor.getFrontLeftDistance() > 5){
   }
   move(0,0,0);
+  
   //STAGE TWO
+  for (int i = 0; i < 5; i++){
+    getPulse();
+    //swing();
+  }
+
   //REQUEST CODE FROM SB1
+  while(getNetworkCode() == ""){
+      masterRequest(SB1_ADDRESS);
+      delay(100);
+  }
+  
   //SEND CODE TO SB2
+  sendCode();
+
   //REQUEST SB2 FINISHED
-  //fire();
+  while(!getsb2Done()){
+    
+  }
+  
+  fire();
   while(1){
 
   }

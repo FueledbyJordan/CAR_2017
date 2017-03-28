@@ -6,6 +6,11 @@ LSM303 compass;
 void setMasterStart(bool start){
   masterStart = start;
 }
+
+String getNetworkCode(){
+    return networkCode;
+}
+
 /*
 void setTask(bool task){
   bTask = task;
