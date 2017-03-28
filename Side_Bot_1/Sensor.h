@@ -17,16 +17,19 @@ class Sensor{
 
         int getFrontLeftDistance();
         int getFrontRightDistance();
-        
+
         int getFrontDistance();
         int getSideDistance();
         int getFrontDifference();
+        String getCode();
 
         void setLeftTouch();
         void setRightTouch();
         void setFrontSensorPair();
         void setSideSensor();
         void setTouchSensorPair();
+        void setProbe();
+
 
         boolean areBothPressed();
 
@@ -40,5 +43,3 @@ class Sensor{
         bool rButtonPressed = false;
 };
 #endif //Sensor.h
-
-
