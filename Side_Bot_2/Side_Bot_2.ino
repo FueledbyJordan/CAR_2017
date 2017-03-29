@@ -18,7 +18,7 @@ void setup(){
 
 void loop(){
   while(!getStart()){
-
+    delay(100);
   }
   // ACTUAL CODE
   pidForward(sensor, 40);
@@ -27,7 +27,7 @@ void loop(){
 
   delay(50);
 
-  accel(30, 0.2);
+  accel(60, 0.2);
 
   while(!sensor.areBothPressed()){
     sensor.setLeftTouch();
@@ -36,11 +36,13 @@ void loop(){
 
   drive(0);
 
-  //setDest(true);
+  setDest(true);
+
+  armForward();
 
   //turn sequence based on CO_ code from master
 
-  //setDone(true);
+  setDone(true);
 
   while(1){
 

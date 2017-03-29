@@ -61,7 +61,7 @@ void initMaster(){
 }
 
 void startSideBots(){
-        if(Wire.available()) {
+        
                 Wire.beginTransmission(SB1_ADDRESS);
                 Wire.write("START");
                 Wire.endTransmission();
@@ -71,7 +71,7 @@ void startSideBots(){
                 Wire.beginTransmission(SB2_ADDRESS);
                 Wire.write("START");
                 Wire.endTransmission();
-        }
+        
 }
 
 void masterRequest(int destination){

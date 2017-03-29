@@ -18,7 +18,7 @@ void setup(){
 void loop(){
   //wait for start
   while(!getStart()){
-
+    delay(100);
   }
   // ACTUAL CODE
   pidForward(sensor, 40);
@@ -27,7 +27,7 @@ void loop(){
 
   delay(50);
 
-  accel(30, 0.2);
+  accel(60, 0.2);
 
   while(!sensor.areBothPressed()){
     sensor.setLeftTouch();
@@ -43,11 +43,11 @@ void loop(){
 
 
   //connection has been made, let's do some probing
-  getCode();
+  //getCode();
 
   setDone(true); //when requested will transmit code
 
-  armReverse();
+  //armReverse();
 
   while(1){
 

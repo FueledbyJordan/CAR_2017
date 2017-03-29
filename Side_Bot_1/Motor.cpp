@@ -55,13 +55,17 @@ int accel(int velocity, float accelRate) {
 }
 
 void armForward(){
-    step_motor.moveTo(STEPPER_VALUE);
+  for (int i = 0; i < 32000; i++){
+    step_motor.move(i);
     step_motor.run();
+  }
 }
 
 void armReverse(){
-    step_motor.moveTo(-STEPPER_VALUE);
+  for (int i = 0; i > -32000; i--){
+    step_motor.move(i);
     step_motor.run();
+  }
 }
 
 void motor1(int speed) {
