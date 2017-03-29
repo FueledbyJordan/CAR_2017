@@ -98,7 +98,7 @@ void masterRequest(int destination){
                                 sb1Done = true;
                         }
                 }else if(message.charAt(0) == 'C' && message.charAt(1) == 'O') {
-                        i = 3;
+                        i = 0;                    
                         while(message.charAt(i) != '&') {
                                 networkCode += message.charAt(i);
                                 i++;
