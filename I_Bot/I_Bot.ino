@@ -15,9 +15,7 @@ void setup(){
 
 void loop(){
   //delay(10000);
-
   startSideBots();
-  Serial.println("Hello");
 
   /*delay(10000);
   //SEND START MESSAGE TO SIDEBOTS

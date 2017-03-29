@@ -123,15 +123,17 @@ void motor4(int speed) {
 }
 
 void armForward(){
-  //while()//daniel's board is not reading{
-    step_motor.moveTo(32000);
+  for (int i = 0; i < 32000; i++){
+    step_motor.move(i);
     step_motor.run();
-  //}
+  }
 }
 
 void armReverse(){
-    step_motor.moveTo(-32000);
+  for (int i = 0; i > -32000; i--){
+    step_motor.move(i);
     step_motor.run();
+  }
 }
 
 

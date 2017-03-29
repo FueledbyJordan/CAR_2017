@@ -18,23 +18,23 @@ void setup(){
 void loop(){
   //wait for start
   while(!getStart()){
-
+    delay(100);
   }
   // ACTUAL CODE
-  /*pidForward(sensor, 40);
+  pidForward(sensor, 40);
 
   drive(0);
 
   delay(50);
 
-  accel(30, 0.2);
+  accel(60, 0.2);
 
   while(!sensor.areBothPressed()){
     sensor.setLeftTouch();
     sensor.setRightTouch();
   }
 
-  drive(0);*/
+  drive(0);
 
   
 
@@ -47,7 +47,7 @@ void loop(){
 
   setDone(true); //when requested will transmit code
 
-  armReverse();
+  //armReverse();
 
   while(1){
 

@@ -36,12 +36,9 @@ void initSB2(){
         bDone = false;
         networkCode = "";
 
-        if(Wire.available()) {
                 Wire.begin(SB2_ADDRESS);  // join i2c bus with address #8
                 Wire.onReceive(receiveEvent); // register event
                 Wire.onRequest(requestEvent);
-        }
-        //Serial.begin(9600);           // start serial for output
 }
 
 void receiveEvent(int howMany) {
