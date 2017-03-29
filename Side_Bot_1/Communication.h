@@ -39,6 +39,8 @@ bool getDone();
 
 void setCode(String code);
 
+String getCode();
+
 void printCode(String code);
 
 void receiveEvent(int howMany);

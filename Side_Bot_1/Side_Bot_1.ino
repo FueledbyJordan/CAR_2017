@@ -36,8 +36,11 @@ void loop(){
 
   drive(0);
 
+  
+
   //extend the arm
   armForward();
+
 
   //connection has been made, let's do some probing
   getCode();

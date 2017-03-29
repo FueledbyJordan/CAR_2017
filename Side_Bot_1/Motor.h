@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "Sensor.h"
+#include <AccelStepper.h>
 
 #define PID_CONST 1
 
