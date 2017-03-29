@@ -20,9 +20,9 @@ PWN Pin | Direction Pin
 ### Sensors
 Sensor Type | Location | Analog Pin | Digital Pin
 :---: | :---: | :---: | :---:
-IR | Side | A2 | N/a
+IR | Side | A0 | N/a
 IR | Left Front | A1 | N/a
-IR | Right Front | A0 | N/a
+IR | Right Front | A2 | N/a
 Touch | Left Front | N/a | 31
 Touch | Right Front | N/a | 29
 
