@@ -16,7 +16,8 @@ void setDone(bool done){
 }
 
 void setCode(String code){
-        networkCode = code;
+        networkCode = "CO_";
+        networkCode += code;
 }
 
 //GETTERS
@@ -87,6 +88,7 @@ void requestEvent(){
         }else if(bDone == false) {
                 Wire.write(DONE.c_str());
         }else if(bDone == true) {
+                Serial.println(networkCode.c_str());
                 Wire.write(networkCode.c_str());
         }
 }
