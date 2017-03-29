@@ -11,6 +11,8 @@
 #define FRT 23  //Front Right Touch Sensor
 #define FLT 25  //Front Left Touch Sensor
 
+#define STARTSWITCH 3
+
 class Sensor{
     public:
         void init();
@@ -33,5 +35,8 @@ class Sensor{
         void setSideSensor();
         void setTouchSensorPair();
 };
+
+void startSwitchInit();
+bool getStartSwitch();
 
 #endif //Sensor.h

@@ -39,3 +39,15 @@ void Sensor::setTouchSensorPair() {
     pinMode(FLT, INPUT);
     pinMode(FRT, INPUT);
 }
+
+void startSwitchInit(){
+  pinMode(STARTSWITCH,INPUT);
+}
+
+bool getStartSwitch(){
+  if(digitalRead(STARTSWITCH) == HIGH){
+    return true;
+  }else{
+    return false;
+  }
+}

@@ -7,6 +7,7 @@ Sensor sensor;
 void setup(){
     Serial.begin(9600);
 
+    startSwitchInit();
     motorInit();
     sensor.init();
     initMaster();
@@ -15,6 +16,10 @@ void setup(){
 
 void loop(){
   //delay(10000);
+  while(!getStartSwitch()){
+    delay(100);
+  }
+  
   startSideBots();
 
   /*delay(10000);
@@ -29,23 +34,25 @@ void loop(){
     getPulse();
     swing();
   }*/
-  /*
+  
   //REQUEST CODE FROM SB1
   while(getNetworkCode() == ""){
       masterRequest(SB1_ADDRESS);
       delay(100);
   }
-  
+    
   //SEND CODE TO SB2
   sendCode();
 
   //REQUEST SB2 FINISHED
   while(!getsb2Done()){
-    
+    masterRequest(SB2_ADDRESS);
+    delay(100);
   }
-  
-  fire();*/
+
+  //fire();
   while(1){
 
   }
 }
+
