@@ -21,6 +21,7 @@ void loop(){
     delay(100);
   }
   // ACTUAL CODE
+  
   pidForward(sensor, 40);
 
   drive(0);
@@ -36,7 +37,6 @@ void loop(){
 
   drive(0);
 
-  
 
   //extend the arm
   armForward();
@@ -44,7 +44,7 @@ void loop(){
 
   //connection has been made, let's do some probing
   //getCode();
-
+  
   setDone(true); //when requested will transmit code
 
   //armReverse();
