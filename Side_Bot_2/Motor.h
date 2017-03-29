@@ -1,8 +1,10 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
+#include <AccelStepper.h>
 #include "Arduino.h"
 #include "Sensor.h"
+
 
 #define PID_CONST 1
 
@@ -18,6 +20,10 @@
     const int mBRa=11;   //MOTOR 4
     const int mBRb=6;
 
+    
+    static const int STEP = 41;
+    static const int STEP_DIR = 43;
+
     static int adjustedV = 1;
 
     void initMotors();
@@ -31,6 +37,9 @@
     void pidForward(Sensor sensor, int velocity);
 //    void rotate(int theta);
     int accel(int velocity, float accelRate);
+
+    void armForward();
+    void armReverse();
 
 
 #endif //Motor.h

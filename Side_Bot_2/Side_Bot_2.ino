@@ -21,7 +21,7 @@ void loop(){
 
   }
   // ACTUAL CODE
-  pidForward(sensor, 40);
+  /*pidForward(sensor, 40);
 
   drive(0);
 
@@ -40,7 +40,11 @@ void loop(){
 
   //turn sequence based on CO_ code from master
 
-  //setDone(true);
+  //setDone(true);*/
+
+  armForward();
+
+  armReverse();
 
   while(1){
 

@@ -1,5 +1,7 @@
 #include "Motor.h"
 
+AccelStepper step_motor(1, STEP, STEP_DIR);
+
 void initMotors(){
         pinMode(mFLa, OUTPUT);
         pinMode(mFLb, OUTPUT);
@@ -9,6 +11,9 @@ void initMotors(){
         pinMode(mBLb, OUTPUT);
         pinMode(mBRa, OUTPUT);
         pinMode(mBRb, OUTPUT);
+
+        step_motor.setMaxSpeed(20000);
+        step_motor.setAcceleration(5000);
 }
 
 void drive(int velocity) {
@@ -116,4 +121,17 @@ void motor4(int speed) {
                 analogWrite(mBRb, speed);
         }
 }
+
+void armForward(){
+  //while()//daniel's board is not reading{
+    step_motor.moveTo(32000);
+    step_motor.run();
+  //}
+}
+
+void armReverse(){
+    step_motor.moveTo(-32000);
+    step_motor.run();
+}
+
 

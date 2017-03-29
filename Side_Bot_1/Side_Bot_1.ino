@@ -21,7 +21,7 @@ void loop(){
 
   }
   // ACTUAL CODE
-  pidForward(sensor, 40);
+  /*pidForward(sensor, 40);
 
   drive(0);
 
@@ -34,7 +34,7 @@ void loop(){
     sensor.setRightTouch();
   }
 
-  drive(0);
+  drive(0);*/
 
   
 
@@ -43,7 +43,7 @@ void loop(){
 
 
   //connection has been made, let's do some probing
-  getCode();
+  //getCode();
 
   setDone(true); //when requested will transmit code
 
