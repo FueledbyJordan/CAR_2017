@@ -5,6 +5,21 @@
 #include "Communication.h"
 #include "Arduino.h"
 
+#define INDUCTOR 1020
+#define SHORT 0
+
+#define ACAPACITOR1 544
+#define ACAPACITOR2 663
+
+#define ARESISTOR 540
+#define ADIODE 120
+
+#define CCAPACITOR1 613
+#define CCAPACITOR2 710
+
+#define CRESISTOR 576
+#define CDIODE 703
+
 #define SIR A0  //Side IR Sensor
 #define FLIR A1 //Front Left IR Sensor
 #define FRIR A2 //Front Right IR Sensor
@@ -17,7 +32,7 @@
 #define PROBE3 A3  //SOUTHEAST
 #define PROBE4 A7  //SOUTHWEST
 #define PROBE5 A4  //NORTHWEST
-#define ENABLEPROBE 50
+#define ENABLEPROBE 8
 
 class Sensor{
     public:

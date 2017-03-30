@@ -68,43 +68,45 @@ void Sensor::setProbe(){
 }
 
 void Sensor::getCode(){
-        const float INDUCTOR = 4.98;
-        const float CAPACITOR = 1.74;
-        const float RESISTOR = 1.42;
-        const float DIODE = 0.56;
-        const float SHORT = 0;
 
-        const float TOLERANCE = .2;
-
-        float reading[5];
+        int storedValue[5][2];//[probe][readings]
+        digitalWrite(ENABLEPROBE, LOW);
+        delay(1000);
+        digitalWrite(ENABLEPROBE,HIGH);
         String code = "";
+        const float TOLERANCE = 0.1;
 
-        reading[0] = analogRead(PROBE1) * 5.0/1023.0;
-        delay(50);
-        reading[1] = analogRead(PROBE2) * 5.0/1023.0;
-        delay(50);
-        reading[2] = analogRead(PROBE3) * 5.0/1023.0;
-        delay(50);
-        reading[3] = analogRead(PROBE4) * 5.0/1023.0;
-        delay(50);
-        reading[4] = analogRead(PROBE5) * 5.0/1023.0;
-        delay(50);
+        for(int readings = 0; readings < 2; readings++) {
+          storedValue[0][readings] = analogRead(PROBE1);
+          storedValue[1][readings] = analogRead(PROBE2);
+          storedValue[2][readings] = analogRead(PROBE3);
+          storedValue[3][readings] = analogRead(PROBE4);
+          storedValue[4][readings] = analogRead(PROBE5);
+          delay(10);
+        }
+        digitalWrite(ENABLEPROBE,LOW);
 
-        for (int i = 0; i < 5; i++) {
-                if (reading[i] <= SHORT * (1 + TOLERANCE) && reading[i] >= SHORT * (1 - TOLERANCE)) {
-                        code += '1';
-                }else if(reading[i] <= RESISTOR * (1 + TOLERANCE) && reading[i] >= RESISTOR * (1 - TOLERANCE)) {
-                        code += '2';
-                }else if(reading[i] <= CAPACITOR * (1 + TOLERANCE) && reading[i] >= CAPACITOR * (1 - TOLERANCE)) {
-                        code += '3';
-                }else if(reading[i] <= INDUCTOR * (1 + TOLERANCE) && reading[i] >= INDUCTOR * (1 - TOLERANCE)) {
-                        code += '4';
-                }else if(reading[i] <= DIODE * (1 + TOLERANCE) && reading[i] >= DIODE * (1 - TOLERANCE)) {
-                        code += '5';
-                }
+        for (int i = 0; i < 5; i++){
+          if (storedValue[i][1] - storedValue[i][0] > 25){  //capacitor
+            code += '3';
+          }else if(storedValue[i][1] <= SHORT * (1+TOLERANCE) && storedValue[i][1] >= SHORT * (1-TOLERANCE)){
+            code += '1';
+          }else if(storedValue[i][1] <= INDUCTOR * (1+TOLERANCE) && storedValue[i][1] >= INDUCTOR * (1-TOLERANCE)){
+            code += '4';
+          }else if((storedValue[i][1] <= ARESISTOR * (1+TOLERANCE) && storedValue[i][1] >= ARESISTOR * (1-TOLERANCE)) || (storedValue[i][1] <= CRESISTOR * (1+TOLERANCE) && storedValue[i][1] >= CRESISTOR * (1-TOLERANCE))){
+            code += '2';
+          }else if((storedValue[i][1] <= ADIODE * (1+TOLERANCE) && storedValue[i][1] >= ADIODE * (1-TOLERANCE)) || (storedValue[i][1] <= CDIODE * (1+TOLERANCE) && storedValue[i][1] >= CDIODE * (1-TOLERANCE))){
+            code += '5';
+          }
         }
 
+        Serial.println(code);
+        
         printCode(code);
 
         setCode(code);
-}
+
+    }
+
+
+

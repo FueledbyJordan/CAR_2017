@@ -3,7 +3,8 @@
 
 #include <Arduino.h>
 #include <Wire.h>
-#include <LSM303.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_LSM303_U.h>
 
 #define SB1_ADDRESS 8
 #define SB2_ADDRESS 9

@@ -17,7 +17,7 @@ void setup(){
 
 void loop(){
   //wait for start
-  while(!getStart()){
+  /*while(!getStart()){
     delay(100);
   }
   // ACTUAL CODE
@@ -41,13 +41,13 @@ void loop(){
   //extend the arm
   armForward();
 
-
+*/
   //connection has been made, let's do some probing
-  //getCode();
+  sensor.getCode();
   
-  setDone(true); //when requested will transmit code
+  /*setDone(true); //when requested will transmit code
 
-  //armReverse();
+  //armReverse();*/
 
   while(1){
 
