@@ -1,6 +1,9 @@
 # SECON2017
-
-This is a temporary repository to hold the collection of source code used for the IEEE SECON robotic competition.
+This code was written and is maintained by:
+* Danny Jordan Murray
+* John Humphries
+* Daniel Young
+* Andrew Schlesinger
 
 ## Dependencies:
 This project has the following dependencies:
@@ -9,12 +12,11 @@ This project has the following dependencies:
 * LSM303
 * Servo
 
-### NOTE:
-This README will be appended to as the project grows.
-
 #### TODO:
-* Servo functions
-* Read Stage 1
 * Rotate Stage 3
 * Implement communication protocol
-* Implement .ino code for SB1, SB2, IBOT
+* Implement .ino code for SB2, IBOT
+
+## Things to do before competing
+* Tune magnetometer
+* Tune probe
