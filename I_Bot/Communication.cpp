@@ -1,6 +1,6 @@
 #include "Communication.h"
 
-LSM303 compass;
+Adafruit_LSM303_Mag_Unified mag = Adafruit_LSM303_Mag_Unified(12345);
 
 //SETTERS
 void setMasterStart(bool start){
@@ -61,7 +61,7 @@ void initMaster(){
 }
 
 void startSideBots(){
-        
+
                 Wire.beginTransmission(SB1_ADDRESS);
                 Wire.write("START");
                 Wire.endTransmission();
@@ -71,7 +71,7 @@ void startSideBots(){
                 Wire.beginTransmission(SB2_ADDRESS);
                 Wire.write("START");
                 Wire.endTransmission();
-        
+
 }
 
 void masterRequest(int destination){
@@ -98,7 +98,7 @@ void masterRequest(int destination){
                                 sb1Done = true;
                         }
                 }else if(message.charAt(0) == 'C' && message.charAt(1) == 'O') {
-                        i = 0;                    
+                        i = 0;
                         while(message.charAt(i) != '&') {
                                 networkCode += message.charAt(i);
                                 i++;
@@ -129,25 +129,23 @@ void sendCode(){
 }
 
 void initMag(){
-    if(Wire.available()){
-        compass.init();
-        compass.enableDefault();
-    }
+    mag.begin();
 }
 
-void getPulse(){
+void getPulse()
+{
+  const int SPACE = 58;
+  const float TOLERANCE = .2;
 
-        compass.read();
-        const float TOLERANCE = 0.05;
+  float magnitude = SPACE;
 
-        //compass.read();
-        int baseLine = 500;
-        //int baseLine = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
-        int current = baseLine;
+  sensors_event_t event;
 
-        while (abs(current) <= baseLine * (1+TOLERANCE)) {
-                compass.read();
-                current = sqrt(pow(compass.m.x,2) + pow(compass.m.y,2) + pow(compass.m.z,2));
-                Serial.println(current);
-        }
+  while(SPACE >= magnitude * (1-TOLERANCE) && SPACE <= magnitude * (1+TOLERANCE)){
+    mag.getEvent(&event);
+    magnitude = sqrt(pow(event.magnetic.x, 2) + pow(event.magnetic.y, 2) + pow(event.magnetic.z, 2));
+    if((int)magnitude == 0){
+      magnitude = SPACE;  //Filter out 0's
+    }
+  }
 }
