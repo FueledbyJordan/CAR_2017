@@ -112,14 +112,14 @@ void motorInit(){
 
 void servoInit(){
     pinMode(7,OUTPUT);
-    lightsaber.write(0);
+    lightsaber.write(10);
     lightsaber.attach(7); //analog pin 0
 }
 
 void swing(){
-  lightsaber.write(100);
+  lightsaber.write(95);
   delay(500);
-  lightsaber.write(0);
+  lightsaber.write(10);
   delay(500);
 }
 

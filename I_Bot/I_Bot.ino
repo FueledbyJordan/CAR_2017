@@ -20,20 +20,20 @@ void loop(){
     delay(100);
   }
   
+  
   startSideBots();
 
-  /*delay(10000);
   //SEND START MESSAGE TO SIDEBOTS
   move(-100,0,0);
   while(sensor.getFrontLeftDistance() > 5){
   }
   move(0,0,0);
-  */
+  
   //STAGE TWO
-  /*for (int i = 0; i < 5; i++){
+  for (int i = 0; i < 5; i++){
     getPulse();
     swing();
-  }*/
+  }
   
   //REQUEST CODE FROM SB1
   while(getNetworkCode() == ""){
@@ -50,7 +50,8 @@ void loop(){
     delay(100);
   }
 
-  //fire();
+  fire();
+  
   while(1){
 
   }
