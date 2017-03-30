@@ -2,6 +2,8 @@
 
 AccelStepper step_motor(1, STEP, STEP_DIR);
 
+Servo height;
+
 void initMotors(){
         pinMode(mFLa, OUTPUT);
         pinMode(mFLb, OUTPUT);
@@ -14,6 +16,7 @@ void initMotors(){
 
         step_motor.setMaxSpeed(20000);
         step_motor.setAcceleration(5000);
+        servoInit();
 }
 
 void drive(int velocity) {
@@ -24,14 +27,19 @@ void drive(int velocity) {
         motor4(velocity);
 }
 
+void servoInit(){
+    pinMode(HEIGHT, OUTPUT);
+    height.attach(HEIGHT);
+}
+
 void pidForward(Sensor sensor, int velocity){
         int diffVal = 0;
-         
+
         accel(velocity, 0.1);
-        
+
           while(sensor.getFrontDistance() > 10) {
                   diffVal = sensor.getFrontDifference();
-  
+
                   if (diffVal > 0) {
                           motor1((velocity - (diffVal * PID_CONST)));
                           motor3((velocity - (diffVal * PID_CONST)));
@@ -42,7 +50,7 @@ void pidForward(Sensor sensor, int velocity){
                           //turn right delta
                   }
           }
-  
+
 }
 
 int accel(int velocity, float accelRate) {
@@ -136,4 +144,7 @@ void armReverse(){
   }
 }
 
-
+void lower(){
+  height.write(140);
+  delay(500);
+}

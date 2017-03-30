@@ -2,6 +2,7 @@
 #define MOTOR_H
 
 #include <AccelStepper.h>
+#include <Servo.h>
 #include "Arduino.h"
 #include "Sensor.h"
 
@@ -20,13 +21,17 @@
     const int mBRa=11;   //MOTOR 4
     const int mBRb=6;
 
-    
+
     static const int STEP = 41;
     static const int STEP_DIR = 43;
 
     static int adjustedV = 1;
 
     void initMotors();
+
+    void servoInit();
+
+    void lower();
 
     void motor1(int speed);
     void motor2(int speed);
@@ -43,4 +48,3 @@
 
 
 #endif //Motor.h
-

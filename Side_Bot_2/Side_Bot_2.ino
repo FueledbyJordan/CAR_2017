@@ -39,6 +39,7 @@ void loop(){
   setDest(true);
 
   armForward();
+  lower();
 
   //turn sequence based on CO_ code from master
 
