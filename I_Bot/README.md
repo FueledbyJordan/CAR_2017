@@ -20,4 +20,7 @@ Solenoid | 4
 
 
 ### Sensors
-TBD
+Device | Pin
+:---: | :---:
+Start Switch | 3
+Rest is TBD
