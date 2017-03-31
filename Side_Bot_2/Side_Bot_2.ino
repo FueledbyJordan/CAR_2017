@@ -10,7 +10,6 @@ void setup(){
   Serial.begin(9600);
 
   sensor.init();
-  //sensor.setFrontSensorPair();
   initMotors();
   initSB2();
 
@@ -39,11 +38,13 @@ void loop(){
   setDest(true);
 
   armForward();
+  setDone(true);
   lower();
 
   //turn sequence based on CO_ code from master
 
-  setDone(true);
+  //stage3();
+  
 
   while(1){
 

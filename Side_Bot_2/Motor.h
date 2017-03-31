@@ -3,8 +3,10 @@
 
 #include <AccelStepper.h>
 #include <Servo.h>
+#include <Stepper.h>
 #include "Arduino.h"
 #include "Sensor.h"
+#include "Communication.h"
 
 
 #define PID_CONST 1
@@ -21,9 +23,12 @@
     const int mBRa=11;   //MOTOR 4
     const int mBRb=6;
 
+    const int HEIGHT = 8;
+
 
     static const int STEP = 41;
     static const int STEP_DIR = 43;
+    const int stepsPerRev = 513;
 
     static int adjustedV = 1;
 
@@ -45,6 +50,9 @@
 
     void armForward();
     void armReverse();
+
+    void stage3();
+    void rotateArm(int rev);
 
 
 #endif //Motor.h

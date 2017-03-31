@@ -49,11 +49,8 @@ void loop(){
   
   setDone(true); //when requested will transmit code
 
-  armReverse();
-  armReverse();
-
   while(1){
-
+    delay(100);
   }
 
 }

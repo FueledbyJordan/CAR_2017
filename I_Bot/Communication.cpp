@@ -134,8 +134,8 @@ void initMag(){
 
 void getPulse()
 {
-  const int SPACE = 58;
-  const float TOLERANCE = .2;
+  const int SPACE = 69;
+  const float TOLERANCE = .1;
 
   float magnitude = SPACE;
 
