@@ -24,8 +24,8 @@ void loop(){
 
   /*startSideBots();
 
-  delay(5000);
-*/
+  delay(5000);*/
+
   //SEND START MESSAGE TO SIDEBOTS
   move(-100, 0, 0);
   
@@ -54,6 +54,9 @@ void loop(){
     swing();
   }
   count = 0;
+  move(-100, 0, 0);
+  delay(600);
+  move(0,0,0);
   //REQUEST CODE FROM SB1
 /*  while(getNetworkCode() == "" || count < 900){ //add a count and exit when count gets to a number using OR
       masterRequest(SB1_ADDRESS);
