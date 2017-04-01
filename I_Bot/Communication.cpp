@@ -66,7 +66,7 @@ void startSideBots(){
                 Wire.write("START");
                 Wire.endTransmission();
 
-                delay(2000);
+                delay(500);
 
                 Wire.beginTransmission(SB2_ADDRESS);
                 Wire.write("START");
