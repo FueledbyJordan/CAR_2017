@@ -86,35 +86,6 @@ void Sensor::getCode(){
         }
         digitalWrite(ENABLEPROBE,LOW);
 
-//        Serial.print("Probe 1:\t");
-//        Serial.println(storedValue[0][0]);
-//        Serial.println(storedValue[0][1]);
-//
-//        Serial.println();
-//
-//        Serial.print("Probe 2:\t");
-//        Serial.println(storedValue[1][0]);
-//        Serial.println(storedValue[1][1]);
-//
-//        Serial.println();
-//
-//        Serial.print("Probe 3:\t");
-//        Serial.println(storedValue[2][0]);
-//        Serial.println(storedValue[2][1]);
-//
-//        Serial.println();
-//
-//                Serial.print("Probe 4:\t");
-//        Serial.println(storedValue[3][0]);
-//        Serial.println(storedValue[3][1]);
-//
-//        Serial.println();
-//
-//                Serial.print("Probe 5:\t");
-//        Serial.println(storedValue[4][0]);
-//        Serial.println(storedValue[4][1]);
-//
-//        Serial.println();
 
         for (int i = 0; i < 5; i++){
           if (storedValue[i][1] - storedValue[i][0] > 15){  //capacitor
