@@ -8,6 +8,7 @@
 
 
 #define PID_CONST 1
+#define HEIGHT 8 //is this right
 
     const int mFLa=9;    //MOTOR 1
     const int mFLb=4;
