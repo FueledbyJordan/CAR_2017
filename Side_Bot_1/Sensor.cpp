@@ -86,11 +86,10 @@ void Sensor::getCode(){
         }
         digitalWrite(ENABLEPROBE,LOW);
 
-
         for (int i = 0; i < 5; i++){
-          if (storedValue[i][1] - storedValue[i][0] > 15){  //capacitor
+          if (storedValue[i][1] - storedValue[i][0] > 5){  //capacitor
             code += '3';
-          }else if(storedValue[i][0] - storedValue[i][1] > 15){ //inductor
+          }else if(storedValue[i][1] <= INDUCTOR * (1+TOLERANCE) && storedValue[i][1] >= INDUCTOR * (1-TOLERANCE)){ //inductor
             code += '4';
           }else if(storedValue[i][1] <= SHORT * (1+TOLERANCE) && storedValue[i][1] >= SHORT * (1-TOLERANCE)){
             code += '1';

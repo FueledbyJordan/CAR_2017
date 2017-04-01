@@ -6,18 +6,19 @@
 #include "Arduino.h"
 
 #define SHORT 0
+#define INDUCTOR 180
 
 #define ACAPACITOR1 544
 #define ACAPACITOR2 663
 
-#define ARESISTOR 570
+#define ARESISTOR 666
 #define ADIODE 120
 
 #define CCAPACITOR1 613
 #define CCAPACITOR2 710
 
-#define CRESISTOR 576
-#define CDIODE 703
+#define CRESISTOR 666
+#define CDIODE 817
 
 #define SIR A0  //Side IR Sensor
 #define FLIR A1 //Front Left IR Sensor
