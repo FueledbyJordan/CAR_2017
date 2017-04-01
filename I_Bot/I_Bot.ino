@@ -22,25 +22,40 @@ void loop(){
   }
 
 
-  startSideBots();
+  /*startSideBots();
 
   delay(5000);
-
+*/
   //SEND START MESSAGE TO SIDEBOTS
-  move(-100,0,0);
-  while(sensor.getFrontLeftDistance() >= 5){
+  move(-100, 0, 0);
+  
+  while(sensor.getFrontDistance() >= 4){
+    
   }
+
+  move(0,0,0);
+
+  delay(50);
+
+  move(-100,0,0);
+
+  delay(400);
+
   move(0,0,0);
 
   //STAGE TWO
+
+  setFreeSpace();
+
+  swing();
   
-  for (int i = 0; i < 5; i++){
+  for (int i = 0; i < 4; i++){
     getPulse(); //add a count and exit when count gets to a number using OR
     swing();
   }
   count = 0;
   //REQUEST CODE FROM SB1
-  while(getNetworkCode() == "" || count < 900){ //add a count and exit when count gets to a number using OR
+/*  while(getNetworkCode() == "" || count < 900){ //add a count and exit when count gets to a number using OR
       masterRequest(SB1_ADDRESS);
       delay(100);
       count++;
@@ -57,6 +72,8 @@ void loop(){
     count++;
   }
 
+  delay(1000);
+*/
   fire();
 
   while(1){

@@ -8,6 +8,7 @@ static const float RAD45    = 0.78539816;   //  pi/4
 
 Servo lightsaber;
 
+
 void move(short speed, unsigned short theta, short rotation) {
     // get argument for trig functions
     float arg = (theta * PI / 180) + RAD45;
@@ -112,21 +113,21 @@ void motorInit(){
 
 void servoInit(){
     pinMode(7,OUTPUT);
-    lightsaber.write(10);
+    lightsaber.write(170);
     lightsaber.attach(7); //analog pin 0
 }
 
 void swing(){
-  lightsaber.write(95);
+  lightsaber.write(80);
   delay(500);
-  lightsaber.write(10);
-  delay(500);
+  lightsaber.write(170);
+  delay(2000);
 }
 
 void fire(){
     analogWrite(GUNMOTOR, 255);
     delay(10000);
-  for(int i=0; i < 3; i++){
+  for(int i=0; i < 6; i++){
     analogWrite(GUNSOLENOID, 255);
     delay(200);
     analogWrite(GUNSOLENOID, 0);

@@ -132,20 +132,28 @@ void initMag(){
     mag.begin();
 }
 
+void setFreeSpace(){
+  sensors_event_t event;
+  mag.getEvent(&event);
+  FREESPACE = sqrt(pow(event.magnetic.x, 2) + pow(event.magnetic.y, 2) + pow(event.magnetic.z, 2));
+}
+
+float getFreeSpace(){
+  return FREESPACE;
+}
+
 void getPulse()
 {
-  const int SPACE = 69;
-  const float TOLERANCE = .1;
+  float magnitude = getFreeSpace() - 1;
+  float TOLERANCE = 5;
 
-  float magnitude = SPACE;
 
-  sensors_event_t event;
-
-  while(SPACE >= magnitude * (1-TOLERANCE) && SPACE <= magnitude * (1+TOLERANCE)){
+  while(magnitude < getFreeSpace() + TOLERANCE){
+    sensors_event_t event;
     mag.getEvent(&event);
     magnitude = sqrt(pow(event.magnetic.x, 2) + pow(event.magnetic.y, 2) + pow(event.magnetic.z, 2));
-    if((int)magnitude == 0){
-      magnitude = SPACE;  //Filter out 0's
+    if(magnitude == 0){
+      magnitude = getFreeSpace();  //Filter out 0's
     }
   }
 }
