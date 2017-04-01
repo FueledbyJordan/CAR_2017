@@ -2,6 +2,8 @@
 
 AccelStepper step_motor(1, STEP, STEP_DIR);
 
+Stepper decoderStepper(stepsPerRev,36,38,40,42);
+
 Servo height;
 
 void initMotors(){
@@ -153,4 +155,22 @@ void armReverse(){
 void lower(){
   height.write(140);
   delay(500);
+}
+
+void stage3(){
+  //String code = getNetworkCode();
+  String code = "12345";
+
+  //clockwise then counterclockwise
+  for(int i=0; i < 5; i++){
+    if(i & 1){
+      rotateArm((int)code.charAt(i));
+    }else{
+      rotateArm(-(int)code.charAt(i));
+    }
+  }
+}
+
+void rotateArm(int rev){
+  decoderStepper.step(stepsPerRev * rev);
 }

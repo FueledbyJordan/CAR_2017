@@ -18,6 +18,8 @@ static const int M4SPD=12;
 static const int GUNMOTOR = 5;
 static const int GUNSOLENOID = 4;
 
+static const int PID_CONST = 1;
+
 
 void motorInit();
 void servoInit();

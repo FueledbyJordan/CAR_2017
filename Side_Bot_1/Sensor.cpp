@@ -86,23 +86,24 @@ void Sensor::getCode(){
         }
         digitalWrite(ENABLEPROBE,LOW);
 
+
         for (int i = 0; i < 5; i++){
-          if (storedValue[i][1] - storedValue[i][0] > 25){  //capacitor
+          if (storedValue[i][1] - storedValue[i][0] > 15){  //capacitor
             code += '3';
+          }else if(storedValue[i][0] - storedValue[i][1] > 15){ //inductor
+            code += '4';
           }else if(storedValue[i][1] <= SHORT * (1+TOLERANCE) && storedValue[i][1] >= SHORT * (1-TOLERANCE)){
             code += '1';
-          }else if(storedValue[i][1] <= INDUCTOR * (1+TOLERANCE) && storedValue[i][1] >= INDUCTOR * (1-TOLERANCE)){
-            code += '4';
           }else if((storedValue[i][1] <= ARESISTOR * (1+TOLERANCE) && storedValue[i][1] >= ARESISTOR * (1-TOLERANCE)) || (storedValue[i][1] <= CRESISTOR * (1+TOLERANCE) && storedValue[i][1] >= CRESISTOR * (1-TOLERANCE))){
             code += '2';
           }else if((storedValue[i][1] <= ADIODE * (1+TOLERANCE) && storedValue[i][1] >= ADIODE * (1-TOLERANCE)) || (storedValue[i][1] <= CDIODE * (1+TOLERANCE) && storedValue[i][1] >= CDIODE * (1-TOLERANCE))){
             code += '5';
           }
         }
-
-        Serial.println(code);
         
         printCode(code);
+
+        setTask(true);
 
         setCode(code);
 

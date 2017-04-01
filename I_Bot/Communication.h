@@ -16,6 +16,8 @@ const String DONE = "ST_DONE";
 
 static String networkCode;
 
+static float FREESPACE;
+
 static bool masterStart;
 
 static bool sb1Task;
@@ -43,6 +45,10 @@ bool getsb2Done();
 String getNetworkCode();
 
 void setCode(String code);
+
+void setFreeSpace();
+
+float getFreeSpace();
 
 void initMaster();
 

@@ -5,13 +5,12 @@
 #include "Communication.h"
 #include "Arduino.h"
 
-#define INDUCTOR 1020
 #define SHORT 0
 
 #define ACAPACITOR1 544
 #define ACAPACITOR2 663
 
-#define ARESISTOR 540
+#define ARESISTOR 570
 #define ADIODE 120
 
 #define CCAPACITOR1 613
@@ -27,11 +26,12 @@
 #define FRT 31  //Front Right Touch Sensor
 #define FLT 29  //Front Left Touch Sensor
 
+//from orientation of looking at back of robot
 #define PROBE1 A5  //NORTH
-#define PROBE2 A6  //NORTHEAST
-#define PROBE3 A3  //SOUTHEAST
-#define PROBE4 A7  //SOUTHWEST
-#define PROBE5 A4  //NORTHWEST
+#define PROBE2 A4  //NORTHEAST
+#define PROBE3 A7  //SOUTHEAST
+#define PROBE4 A3  //SOUTHWEST
+#define PROBE5 A6  //NORTHWEST
 #define ENABLEPROBE 8
 
 class Sensor{
