@@ -13,6 +13,7 @@ void setup(){
   //sensor.setFrontSensorPair();
   initMotors();
   initSB2();
+  servoInit();
 
 }
 

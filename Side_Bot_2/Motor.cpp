@@ -43,10 +43,16 @@ void pidForward(Sensor sensor, int velocity){
                   if (diffVal > 0) {
                           motor1((velocity - (diffVal * PID_CONST)));
                           motor3((velocity - (diffVal * PID_CONST)));
+
+                          motor2((velocity + (diffVal * PID_CONST)));
+                          motor4((velocity + (diffVal * PID_CONST)));
                           //turn left delta
                   }else if(diffVal < 0) {
                           motor2((velocity - (diffVal * PID_CONST)));
                           motor4((velocity - (diffVal * PID_CONST)));
+
+                          motor1((velocity + (diffVal * PID_CONST)));
+                          motor3((velocity + (diffVal * PID_CONST)));
                           //turn right delta
                   }
           }
