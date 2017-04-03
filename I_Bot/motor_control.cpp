@@ -124,6 +124,10 @@ void swing(){
   delay(2000);
 }
 
+void lightsaberOff(){
+  lightsaber.detach();
+}
+
 void fire(){
     analogWrite(GUNMOTOR, 255);
     delay(10000);

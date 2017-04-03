@@ -11,13 +11,13 @@
 #define ACAPACITOR1 544
 #define ACAPACITOR2 663
 
-#define ARESISTOR 666
+#define ARESISTOR 680
 #define ADIODE 120
 
 #define CCAPACITOR1 613
 #define CCAPACITOR2 710
 
-#define CRESISTOR 666
+#define CRESISTOR 680
 #define CDIODE 817
 
 #define SIR A0  //Side IR Sensor
@@ -54,7 +54,7 @@ class Sensor{
         void setTouchSensorPair();
         void setProbe();
 
-
+        String clean(String string);
         boolean areBothPressed();
 
 

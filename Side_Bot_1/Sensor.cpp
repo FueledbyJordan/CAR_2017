@@ -82,10 +82,29 @@ void Sensor::getCode(){
           storedValue[2][readings] = analogRead(PROBE3);
           storedValue[3][readings] = analogRead(PROBE4);
           storedValue[4][readings] = analogRead(PROBE5);
-          delay(10);
+       
         }
         digitalWrite(ENABLEPROBE,LOW);
-
+       Serial.print("Porbe 1: \t");
+       Serial.println(storedValue[0][0]);
+       Serial.println(storedValue[0][1]);
+       Serial.println();
+       Serial.print("Porbe 2: \t");
+       Serial.println(storedValue[1][0]);
+       Serial.println(storedValue[1][1]);
+       Serial.println();
+       Serial.print("Porbe 3: \t");
+       Serial.println(storedValue[2][0]);
+       Serial.println(storedValue[2][1]);
+       Serial.println();
+       Serial.print("Porbe 4: \t");
+       Serial.println(storedValue[3][0]);
+       Serial.println(storedValue[3][1]);
+       Serial.println();
+       Serial.print("Porbe 5: \t");
+       Serial.println(storedValue[4][0]);
+       Serial.println(storedValue[4][1]);
+       Serial.println();
         for (int i = 0; i < 5; i++){
           if (storedValue[i][1] - storedValue[i][0] > 5){  //capacitor
             code += '3';
@@ -97,8 +116,15 @@ void Sensor::getCode(){
             code += '2';
           }else if((storedValue[i][1] <= ADIODE * (1+TOLERANCE) && storedValue[i][1] >= ADIODE * (1-TOLERANCE)) || (storedValue[i][1] <= CDIODE * (1+TOLERANCE) && storedValue[i][1] >= CDIODE * (1-TOLERANCE))){
             code += '5';
+          }else{
+            code += '0';
           }
         }
+        
+        //code.setCharAt(code.indexOf('0'), '6');
+        //code = checkZeros(code);
+
+        //clean(code);
         
         printCode(code);
 
@@ -106,7 +132,16 @@ void Sensor::getCode(){
 
         setCode(code);
 
-    }
+}
 
+String Sensor::clean(String string){
+  int nums[5];
+  for(int i = 0; i < 5; i++){
+   nums[i] = atoi(string.charAt(i));
+   Serial.println(nums[i]);
+  }
+  
+    
+}
 
 
