@@ -16,7 +16,7 @@ static const int M4DIR=24;  //mBR
 static const int M4SPD=12;
 
 static const int GUNMOTOR = 5;
-static const int GUNSOLENOID = 4;
+static const int GUNSOLENOID = 6;
 
 static const int PID_CONST = 1;
 
@@ -32,6 +32,8 @@ void motor1(int speed);
 void motor2(int speed);
 void motor3(int speed);
 void motor4(int speed);
+
+void lightsaberOff();
 
 void move(short speed, unsigned short theta, short rotation);
 

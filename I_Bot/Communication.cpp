@@ -136,6 +136,7 @@ void setFreeSpace(){
   sensors_event_t event;
   mag.getEvent(&event);
   FREESPACE = sqrt(pow(event.magnetic.x, 2) + pow(event.magnetic.y, 2) + pow(event.magnetic.z, 2));
+  Serial.println(FREESPACE);
 }
 
 float getFreeSpace(){
@@ -145,14 +146,14 @@ float getFreeSpace(){
 void getPulse()
 {
   float magnitude = getFreeSpace() - 1;
-  float TOLERANCE = 3;
+  float TOLERANCE = 2;
 
   while(magnitude < getFreeSpace() + TOLERANCE){
     sensors_event_t event;
     mag.getEvent(&event);
     magnitude = sqrt(pow(event.magnetic.x, 2) + pow(event.magnetic.y, 2) + pow(event.magnetic.z, 2));
     if(magnitude == 0){
-      magnitude = getFreeSpace() - 1;  //Filter out 0's
+      magnitude = getFreeSpace() -1;
     }
   }
 }
