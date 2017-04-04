@@ -35,6 +35,7 @@ int Sensor::getSideDistance() {
 void Sensor::setTouchSensorPair() {
     pinMode(FLT, INPUT);
     pinMode(FRT, INPUT);
+    pinMode(SCOUNT, INPUT);
 }
 
 int Sensor::getFrontLeftDistance() {
@@ -48,6 +49,7 @@ int Sensor::getFrontRightDistance() {
 boolean Sensor::areBothPressed() {
   return (rButtonPressed & lButtonPressed);
 }
+
 
 void Sensor::setLeftTouch() {
   if (digitalRead(FLT)) {

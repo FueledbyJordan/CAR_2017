@@ -2,7 +2,7 @@
 
 AccelStepper step_motor(1, STEP, STEP_DIR);
 
-Stepper decoderStepper(stepsPerRev,36,38,40,42);
+Servo stg3;
 
 Servo height;
 
@@ -32,6 +32,8 @@ void drive(int velocity) {
 void servoInit(){
     pinMode(HEIGHT, OUTPUT);
     height.attach(HEIGHT);
+    stg3.attach(STAGE3PIN);
+    stg3.write(90);
 }
 
 void pidForward(Sensor sensor, int velocity){
@@ -146,31 +148,50 @@ void armForward(){
 }
 
 void armReverse(){
-  for (int i = 0; i > -32000; i--){
+  for (int i = 0; i > -17000; i--){
     step_motor.move(i);
     step_motor.run();
   }
 }
 
 void lower(){
-  height.write(140);
+  height.write(155);
   delay(500);
 }
 
-void stage3(){
-  //String code = getNetworkCode();
-  String code = "12345";
+void reset(){
+  height.write(90);
+  delay(500);
+}
 
-  //clockwise then counterclockwise
-  for(int i=0; i < 5; i++){
-    if(i & 1){
-      rotateArm((int)code.charAt(i));
-    }else{
-      rotateArm(-(int)code.charAt(i));
-    }
+void rotate(Sensor sensor){
+int count = 5;
+
+int num[5];
+
+String rot = getCode();
+
+stg3.write(90);
+
+delay(1000);
+
+for (int i = 0; i < count; i++){
+  num[i] = (int)rot.charAt(i);
+  num[i] -= 48;
+}
+
+for (int i = 0; i < count; i++){
+  if(i & 1){
+    stg3.write(135);
+  }else{
+    stg3.write(35);
   }
+  delay(1160 * (i+1));
+  stg3.write(90);
+  delay(1000);
 }
 
-void rotateArm(int rev){
-  decoderStepper.step(stepsPerRev * rev);
+stg3.detach();
+
 }
+

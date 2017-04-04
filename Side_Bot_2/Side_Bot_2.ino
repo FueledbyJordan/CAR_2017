@@ -21,34 +21,42 @@ void loop(){
     delay(100);
   }
   // ACTUAL CODE
-  pidForward(sensor, 40);
-
-  drive(0);
-
-  delay(50);
 
   accel(60, 0.2);
 
-  while(!sensor.areBothPressed()){
+  int count = 0;
+
+  while(!sensor.areBothPressed() || count < 5 0){
     sensor.setLeftTouch();
     sensor.setRightTouch();
+    count++;
+    delay(100);
   }
 
   drive(0);
 
   setDest(true);
 
+  //armForward();
   armForward();
-  setDone(true);
+  
   lower();
 
+  setDone(true);
+  
   //turn sequence based on CO_ code from master
+  //armReverse();
+  //reset();
+  
 
-  //stage3();
+  rotate(sensor);
+
+  
   
 
   while(1){
-
+    //Serial.println(sensor.revolution());
+    //Serial.println(digitalRead(49));
   }
 
 }

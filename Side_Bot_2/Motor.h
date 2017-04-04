@@ -10,7 +10,6 @@
 
 
 #define PID_CONST 1
-#define HEIGHT 8 //is this right
 
     const int mFLa=9;    //MOTOR 1
     const int mFLb=4;
@@ -27,6 +26,7 @@
     const int HEIGHT = 8;
 
 
+    static const int STAGE3PIN = 2;
     static const int STEP = 41;
     static const int STEP_DIR = 43;
     const int stepsPerRev = 513;
@@ -51,9 +51,9 @@
 
     void armForward();
     void armReverse();
+    void reset();
 
-    void stage3();
-    void rotateArm(int rev);
+    void rotate(Sensor sensor);
 
 
 #endif //Motor.h

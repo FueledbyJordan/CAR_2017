@@ -4,12 +4,14 @@
 #include <DistanceGP2Y0A21YK.h>
 #include "Arduino.h"
 
-#define SIR A0  //Side IR Sensor
+#define SIR A2  //Side IR Sensor
 #define FLIR A1 //Front Left IR Sensor
-#define FRIR A2 //Front Right IR Sensor
+#define FRIR A0 //Front Right IR Sensor
 
 #define FRT 29  //Front Right Touch Sensor
 #define FLT 31  //Front Left Touch Sensor
+
+#define SCOUNT 49
 
 class Sensor{
     public:

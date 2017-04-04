@@ -30,6 +30,10 @@ bool getDone(){
         return bDone;
 }
 
+String getCode(){
+  return networkCode;
+}
+
 void initSB2(){
         bStart = false;
         bDest = false;
