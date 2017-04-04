@@ -1,9 +1,9 @@
 # SECON2017
 This code was written and is maintained by:
-* Danny Jordan Murray
-* John Humphries
-* Daniel Young
-* Andrew Schlesinger
+* [Danny Jordan Murray](https://github.com/fueledbyjordan)
+* [John Humphries](https://github.com/jhumph30)
+* [Daniel Young](https://github.com/dyoung81)
+* [Andrew Schlesinger](https://github.com/aschles4)
 
 ## Dependencies:
 This project has the following dependencies:
@@ -11,11 +11,6 @@ This project has the following dependencies:
 * AccelStepper
 * LSM303
 * Servo
-
-#### TODO:
-* Rotate Stage 3
-* Implement communication protocol
-* Implement .ino code for SB2, IBOT
 
 ## Things to do before competing
 * Tune magnetometer
